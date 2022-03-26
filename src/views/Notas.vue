@@ -76,6 +76,7 @@
 </template>
 
 <script>
+import {mapState} from 'vuex';
 export default {
     data() {
         return {
@@ -87,6 +88,9 @@ export default {
             editar: false,
             notaEditar: {}
         }
+    },
+    computed: {
+        ...mapState(['token'])
     },
     created(){
         this.listarNotas();
@@ -100,7 +104,13 @@ export default {
         }, */
 
         listarNotas(){
-            this.axios.get('/nota')
+            let config = {
+                headers: {
+                    'access-token': this.token
+                }
+            }
+
+            this.axios.get('/nota', config)
                 .then(res => {
                     /* console.log(res.data); */
                     this.notas = res.data;
@@ -110,8 +120,14 @@ export default {
                 })
         },
         agregarNota(){
+            let config = {
+                headers: {
+                    'access-token': this.token
+                }
+            }
+
             /* console.log(this.nota); */
-            this.axios.post('/nueva-nota', this.nota)
+            this.axios.post('/nueva-nota', this.nota, config)
                 .then(res => {
                     this.notas.push(res.data);
                     this.nota.nombre = '';

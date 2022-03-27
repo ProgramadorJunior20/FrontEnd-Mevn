@@ -9,7 +9,7 @@
                 v-model="usuario.email"
             >
             <input 
-                type="text" 
+                type="password" 
                 placeholder="Contraseña" 
                 class="form-control my-2"
                 v-model="usuario.pass"
@@ -28,7 +28,7 @@ import { mapActions } from 'vuex';
 export default{
     data() {
         return {
-            usuario: {email: 'Usuario@gmail.com', pass: '123456'},
+            usuario: {email: '', pass: ''},
             mensaje: ''
         }
     },

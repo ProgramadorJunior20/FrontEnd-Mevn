@@ -6,7 +6,7 @@
       <router-link to="/login" v-if="!estaActivo">Login</router-link> |
       <a @click="cerrarSesion()" v-if="estaActivo">Cerrar Sesion</a> |
       <router-link to="/notas" v-if="estaActivo">Notas</router-link>
-    </div> -->
+    </div> --> 
     <div>
     <b-navbar toggleable="md" type="dark" variant="info">
       <b-navbar-brand href="#">CRUD NOTAS</b-navbar-brand>
